@@ -1,7 +1,7 @@
 mkdir -p 'Lab_1/sandbox' 'Lab_1/Work/Лабораторная работа №1!' 'Lab_1/Work/ФИО'
 
 cd Lab_1/sandbox
-nasm -f elf32 Boriskin.asm -o Boriskin.o
+fasm Boriskin.asm Boriskin.o
 ld -m elf_i386 Boriskin.o -o Boriskin
 ./Boriskin
 
@@ -42,3 +42,4 @@ uname -a >> 'Лабораторная работа №1!/Result_3'
 date >> 'Лабораторная работа №1!/Result_3'
 
 # ФИО: Борискин Илья Васильевич
+# Ассемблер: FASM x86-32 Linux

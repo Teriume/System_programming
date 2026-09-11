@@ -4,6 +4,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     build-essential \
     gcc \
     gdb \
+    fasm \
     nasm \
     binutils \
     libc6-dev-i386 \

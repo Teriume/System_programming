@@ -9,5 +9,5 @@
       ]
     }
   },
-  "postCreateCommand": "apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential nasm gdb gcc-multilib libc6-dev-i386 binutils"
+  "postCreateCommand": "apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential fasm nasm gdb gcc-multilib libc6-dev-i386 binutils"
 }

@@ -1,22 +1,15 @@
-; Сборка:
-;   nasm -f elf32 Boriskin.asm -o Boriskin.o
-;   ld -m elf_i386 Boriskin.o -o Boriskin
-;
-; Выводит фамилию, имя, отчество, каждую строку с новой строки.
+format ELF32
+public _start
 
-section .data
-    fam db 'Борискин', 0x0A
-    fam_len equ $ - fam
+section '.data' writeable
+    fam db 'Борискин', 10
+    fam_len = $ - fam
+    name db 'Илья', 10
+    name_len = $ - name
+    pat db 'Васильевич', 10
+    pat_len = $ - pat
 
-    name db 'Илья', 0x0A
-    name_len equ $ - name
-
-    pat db 'Васильевич', 0x0A
-    pat_len equ $ - pat
-
-section .text
-    global _start
-
+section '.text' executable
 _start:
     mov eax, 4
     mov ebx, 1
