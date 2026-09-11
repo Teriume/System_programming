@@ -11,7 +11,7 @@ section .data
     name db 'Илья', 0x0A
     name_len equ $ - name
 
-    pat db 'Отчество', 0x0A
+    pat db 'Васильевич', 0x0A
     pat_len equ $ - pat
 
 section .text

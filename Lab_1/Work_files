@@ -40,3 +40,5 @@ mv 'ФИО/Result_one' 'ФИО/Result_two'
 find 'ФИО' -maxdepth 1 -type f -name 'T*' -exec cat {} \; > 'Лабораторная работа №1!/Result_3'
 uname -a >> 'Лабораторная работа №1!/Result_3'
 date >> 'Лабораторная работа №1!/Result_3'
+
+# ФИО: Борискин Илья Васильевич

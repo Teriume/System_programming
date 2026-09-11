@@ -3,6 +3,6 @@
 int main(void) {
     printf("Борискин\n");
     printf("Илья\n");
-    printf("Отчество\n");
+    printf("Васильевич\n");
     return 0;
 }
