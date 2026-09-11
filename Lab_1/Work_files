@@ -1,0 +1,42 @@
+mkdir -p 'Lab_1/sandbox' 'Lab_1/Work/Лабораторная работа №1!' 'Lab_1/Work/ФИО'
+
+cd Lab_1/sandbox
+nasm -f elf32 Boriskin.asm -o Boriskin.o
+ld -m elf_i386 Boriskin.o -o Boriskin
+./Boriskin
+
+gcc C_version.c -o C_version
+./C_version
+
+gdb -batch -ex 'set pagination off' -ex 'disassemble _start' Boriskin > Disassemble
+
+gdb -batch -ex 'set pagination off' -ex 'disassemble main' C_version >> Disassemble
+
+cd ../Work
+cat > 'Text @1' <<'TEXT'
+Птица говорун отличается умом и сообразительностью!
+Отличается умом, отличается сообразительностью...
+TEXT
+
+cp 'Text @1' 'Text \$2'
+mv 'Text \$2' 'Лабораторная работа №1!/Text \$2'
+cp 'Text @1' 'ФИО/Text @1'
+
+cat > 'Text #3' <<'TEXT'
+Пустой файл для задания
+TEXT
+
+gzip -c 'Text @1' > 'Text @1.gz'
+gzip -c 'Text #3' > 'Text #3.gz'
+tar -czf 'MyAchiv.tar.gz' -C '.' 'Text @1.gz' 'Text #3.gz'
+
+first_line=$(head -n 1 'Text @1')
+printf '%s\n' "$first_line" > 'Text #3'
+printf '%s\n' 'Будь осторожен! Преступник вооружен!' >> 'Text #3'
+
+tac 'Text @1' > 'ФИО/Result_one'
+mv 'ФИО/Result_one' 'ФИО/Result_two'
+
+find 'ФИО' -maxdepth 1 -type f -name 'T*' -exec cat {} \; > 'Лабораторная работа №1!/Result_3'
+uname -a >> 'Лабораторная работа №1!/Result_3'
+date >> 'Лабораторная работа №1!/Result_3'
