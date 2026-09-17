@@ -1,43 +1,26 @@
-mkdir -p 'Lab_1/sandbox' 'Lab_1/Work/Лабораторная работа №1!' 'Lab_1/Work/ФИО'
+mkdir -p "Work/Лабораторная работа №1!" "Work/ФИО"
+chmod 770 "Work/Лабораторная работа №1!"
+chmod 700 "Work/ФИО"
 
-cd Lab_1/sandbox
-fasm Boriskin.asm Boriskin.o
-ld -m elf_i386 Boriskin.o -o Boriskin
-./Boriskin
-
-gcc C_version.c -o C_version
-./C_version
-
-gdb -batch -ex 'set pagination off' -ex 'disassemble _start' Boriskin > Disassemble
-
-gdb -batch -ex 'set pagination off' -ex 'disassemble main' C_version >> Disassemble
-
-cd ../Work
-cat > 'Text @1' <<'TEXT'
+cat > "Work/Text @1" <<'TEXT'
 Птица говорун отличается умом и сообразительностью!
 Отличается умом, отличается сообразительностью...
 TEXT
 
-cp 'Text @1' 'Text \$2'
-mv 'Text \$2' 'Лабораторная работа №1!/Text \$2'
-cp 'Text @1' 'ФИО/Text @1'
+cp "Work/Text @1" "Work/Text $2"
+mv "Work/Text $2" "Work/Лабораторная работа №1!/"
+cp "Work/Text @1" "Work/ФИО/"
 
-cat > 'Text #3' <<'TEXT'
-Пустой файл для задания
-TEXT
+head -n1 "Work/Text @1" > "Work/Text #3"
+echo "Будь осторожен! Преступник вооружен!" >> "Work/Text #3"
 
-gzip -c 'Text @1' > 'Text @1.gz'
-gzip -c 'Text #3' > 'Text #3.gz'
-tar -czf 'MyAchiv.tar.gz' -C '.' 'Text @1.gz' 'Text #3.gz'
+gzip -c "Work/Text @1" > "Work/Text @1.gz"
+gzip -c "Work/Text #3" > "Work/Text #3.gz"
+tar -cf "Work/MyAchiv.tar" -C "Work" "Text @1.gz" "Text #3.gz"
 
-first_line=$(head -n 1 'Text @1')
-printf '%s\n' "$first_line" > 'Text #3'
-printf '%s\n' 'Будь осторожен! Преступник вооружен!' >> 'Text #3'
+awk '{lines[NR]=$0} END{for(i=NR;i>=1;i--) print lines[i]}' "Work/Text @1" > "Work/ФИО/Result_one"
+mv "Work/ФИО/Result_one" "Work/ФИО/Result_two"
 
-tac 'Text @1' > 'ФИО/Result_one'
-mv 'ФИО/Result_one' 'ФИО/Result_two'
-
-find 'ФИО' -maxdepth 1 -type f -name 'T*' -exec cat {} \; > 'Лабораторная работа №1!/Result_3'
-uname -a >> 'Лабораторная работа №1!/Result_3'
-date >> 'Лабораторная работа №1!/Result_3'
-
+find "Work/ФИО" -maxdepth 1 -type f -name 'T*' -exec sh -c 'echo "===== $(basename "$1") ====="; cat "$1"; echo' _ {} \; > "Work/Лабораторная работа №1!/Result_3"
+uname -a >> "Work/Лабораторная работа №1!/Result_3"
+date >> "Work/Лабораторная работа №1!/Result_3"
