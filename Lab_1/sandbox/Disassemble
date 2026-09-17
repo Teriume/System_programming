@@ -1,0 +1,43 @@
+Dump of assembler code for function _start:
+   0x08049000 <+0>:	mov    $0x4,%eax
+   0x08049005 <+5>:	mov    $0x1,%ebx
+   0x0804900a <+10>:	mov    $0x804a000,%ecx
+   0x0804900f <+15>:	mov    $0x2f,%edx
+   0x08049014 <+20>:	int    $0x80
+   0x08049016 <+22>:	mov    $0x1,%eax
+   0x0804901b <+27>:	xor    %ebx,%ebx
+   0x0804901d <+29>:	int    $0x80
+End of assembler dump.
+Dump of assembler code for function main:
+   0x0000119d <+0>:	lea    0x4(%esp),%ecx
+   0x000011a1 <+4>:	and    $0xfffffff0,%esp
+   0x000011a4 <+7>:	push   -0x4(%ecx)
+   0x000011a7 <+10>:	push   %ebp
+   0x000011a8 <+11>:	mov    %esp,%ebp
+   0x000011aa <+13>:	push   %ebx
+   0x000011ab <+14>:	push   %ecx
+   0x000011ac <+15>:	call   0x10a0 <__x86.get_pc_thunk.bx>
+   0x000011b1 <+20>:	add    $0x2e27,%ebx
+   0x000011b7 <+26>:	sub    $0xc,%esp
+   0x000011ba <+29>:	lea    -0x1fd0(%ebx),%eax
+   0x000011c0 <+35>:	push   %eax
+   0x000011c1 <+36>:	call   0x1050 <puts@plt>
+   0x000011c6 <+41>:	add    $0x10,%esp
+   0x000011c9 <+44>:	sub    $0xc,%esp
+   0x000011cc <+47>:	lea    -0x1fbf(%ebx),%eax
+   0x000011d2 <+53>:	push   %eax
+   0x000011d3 <+54>:	call   0x1050 <puts@plt>
+   0x000011d8 <+59>:	add    $0x10,%esp
+   0x000011db <+62>:	sub    $0xc,%esp
+   0x000011de <+65>:	lea    -0x1fb6(%ebx),%eax
+   0x000011e4 <+71>:	push   %eax
+   0x000011e5 <+72>:	call   0x1050 <puts@plt>
+   0x000011ea <+77>:	add    $0x10,%esp
+   0x000011ed <+80>:	mov    $0x0,%eax
+   0x000011f2 <+85>:	lea    -0x8(%ebp),%esp
+   0x000011f5 <+88>:	pop    %ecx
+   0x000011f6 <+89>:	pop    %ebx
+   0x000011f7 <+90>:	pop    %ebp
+   0x000011f8 <+91>:	lea    -0x4(%ecx),%esp
+   0x000011fb <+94>:	ret    
+End of assembler dump.
