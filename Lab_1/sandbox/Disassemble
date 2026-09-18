@@ -1,23 +1,25 @@
+=== disassemble Boriskin (_start) ===
 Dump of assembler code for function _start:
-   0x08049000 <+0>:	mov    $0x4,%eax
-   0x08049005 <+5>:	mov    $0x1,%ebx
-   0x0804900a <+10>:	mov    $0x804a000,%ecx
-   0x0804900f <+15>:	mov    $0x11,%edx
-   0x08049014 <+20>:	int    $0x80
-   0x08049016 <+22>:	mov    $0x4,%eax
-   0x0804901b <+27>:	mov    $0x1,%ebx
-   0x08049020 <+32>:	mov    $0x804a011,%ecx
-   0x08049025 <+37>:	mov    $0x9,%edx
-   0x0804902a <+42>:	int    $0x80
-   0x0804902c <+44>:	mov    $0x4,%eax
-   0x08049031 <+49>:	mov    $0x1,%ebx
-   0x08049036 <+54>:	mov    $0x804a01a,%ecx
-   0x0804903b <+59>:	mov    $0x15,%edx
-   0x08049040 <+64>:	int    $0x80
-   0x08049042 <+66>:	mov    $0x1,%eax
-   0x08049047 <+71>:	xor    %ebx,%ebx
-   0x08049049 <+73>:	int    $0x80
+   0x0000000000401000 <+0>:	mov    $0x1,%rax
+   0x0000000000401007 <+7>:	mov    $0x1,%rdi
+   0x000000000040100e <+14>:	movabs $0x403000,%rsi
+   0x0000000000401018 <+24>:	mov    $0x11,%rdx
+   0x000000000040101f <+31>:	syscall 
+   0x0000000000401021 <+33>:	mov    $0x1,%rax
+   0x0000000000401028 <+40>:	mov    $0x1,%rdi
+   0x000000000040102f <+47>:	movabs $0x403011,%rsi
+   0x0000000000401039 <+57>:	mov    $0x9,%rdx
+   0x0000000000401040 <+64>:	syscall 
+   0x0000000000401042 <+66>:	mov    $0x1,%rax
+   0x0000000000401049 <+73>:	mov    $0x1,%rdi
+   0x0000000000401050 <+80>:	movabs $0x40301a,%rsi
+   0x000000000040105a <+90>:	mov    $0x15,%rdx
+   0x0000000000401061 <+97>:	syscall 
+   0x0000000000401063 <+99>:	mov    $0x3c,%rax
+   0x000000000040106a <+106>:	xor    %rdi,%rdi
+   0x000000000040106d <+109>:	syscall 
 End of assembler dump.
+\n=== disassemble C_version (main) ===
 Dump of assembler code for function main:
    0x0000119d <+0>:	lea    0x4(%esp),%ecx
    0x000011a1 <+4>:	and    $0xfffffff0,%esp
