@@ -1,4 +1,4 @@
-format ELF
+format ELF64
 
 section ".data" writeable
 fam db 'Борискин', 10
@@ -9,27 +9,30 @@ pat db 'Васильевич', 10
 pat_len = $ - pat
 
 section ".text" executable
-use32
 public _start
 _start:
-	mov eax, 4
-	mov ebx, 1
-	mov ecx, fam
-	mov edx, fam_len
-	int 0x80
+	; write(fileno=1, buf=fam, len=fam_len)
+	mov rax, 1
+	mov rdi, 1
+	mov rsi, fam
+	mov rdx, fam_len
+	syscall
 
-	mov eax, 4
-	mov ebx, 1
-	mov ecx, name
-	mov edx, name_len
-	int 0x80
+	; write name
+	mov rax, 1
+	mov rdi, 1
+	mov rsi, name
+	mov rdx, name_len
+	syscall
 
-	mov eax, 4
-	mov ebx, 1
-	mov ecx, pat
-	mov edx, pat_len
-	int 0x80
+	; write patronymic
+	mov rax, 1
+	mov rdi, 1
+	mov rsi, pat
+	mov rdx, pat_len
+	syscall
 
-	mov eax, 1
-	xor ebx, ebx
-	int 0x80
+	; exit(0)
+	mov rax, 60
+	xor rdi, rdi
+	syscall
